@@ -1,18 +1,19 @@
 package tests;
 
 import java.io.IOException;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import pages.LoginPage;
-import pages.MainPage;
 
 public class LogInTests extends TestBase {
 
+	@BeforeMethod
+	public void setup() throws InterruptedException {
+		driver.navigate().to("http://automationpractice.com/index.php");
+		Thread.sleep(2000);
+	}
 
 	@Test
 	public void logInCorrect() throws InterruptedException, IOException {
