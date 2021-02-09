@@ -21,9 +21,9 @@ public class ExcelCitac {
 	XSSFCell cell;
 	
 	public ExcelCitac(String filePath) throws IOException {
-		this.fajl = new File(filePath);
-		this.fis = new FileInputStream(fajl);
-		this.wb = new XSSFWorkbook(fis);
+		fajl = new File(filePath);
+		fis = new FileInputStream(fajl);
+		wb = new XSSFWorkbook(fis);
 	}
 	
 	

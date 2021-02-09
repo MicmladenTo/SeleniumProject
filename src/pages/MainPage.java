@@ -18,6 +18,7 @@ public class MainPage {
 	
 	//Constructor
 	public MainPage(WebDriver driver) {
+		super();
 		this.driver = driver;
 	}
 	

@@ -23,7 +23,9 @@ public class MyAccountPage {
 	}
 	
 	public WebElement getMyAddressesButton() {
-		return driver.findElement(By.xpath("//a[contains(@title,'Addresses')]"));
+		return driver.findElement(By.xpath("//a[@title='Addresses']"));
+//		return driver.findElement(By.xpath("/html/body/div/div[2]/div/div[3]/div/div/div[1]/ul/li[3]/a"));
+		
 	}
 	
 	//Constructor

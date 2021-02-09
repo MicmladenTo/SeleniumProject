@@ -1,14 +1,21 @@
 package tests;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+
+import pages.LoginPage;
+import pages.MainPage;
 
 public class LogInTests extends TestBase {
 
 
 	@Test
-	public void logInCorrect() throws InterruptedException {
+	public void logInCorrect() throws InterruptedException, IOException {
 		
 		String username = excelCitac.getStringData("logInCorrect", 4, 6);
 		String password = excelCitac.getStringData("logInCorrect", 5, 6);
@@ -63,7 +70,12 @@ public class LogInTests extends TestBase {
 		Assert.assertEquals(loginPage.getAlertNotification().getText(), loginPage.noEmailNotification());
 	}
 
-	
+	@AfterMethod
+	public void afterTest() throws InterruptedException {
+		driver.manage().deleteAllCookies();
+		driver.navigate().refresh();
+		Thread.sleep(2000);
+	}
 	
 	
 }
