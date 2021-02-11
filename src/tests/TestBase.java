@@ -15,6 +15,9 @@ import pages.LoginPage;
 import pages.MainPage;
 import pages.MyAccountPage;
 import pages.MyAddressesPage;
+import pages.MyInformationPage;
+import pages.MyWishlistsPage;
+
 
 
 public class TestBase {
@@ -29,6 +32,9 @@ public class TestBase {
 	AddressTests addressTests;
 	MyAddressesPage myAddressesPage;
 	AddressPage addressPage;
+	MyInformationPage myInformationPage;
+	MyWishlistsPage myWishlistsPage;
+	
 
 	@BeforeClass
 	public void preKlase() throws IOException, InterruptedException {
@@ -44,6 +50,8 @@ public class TestBase {
 		this.logInTests = new LogInTests();
 		this.addressTests = new AddressTests();
 		this.addressPage = new AddressPage(js, driver);
+		this.myInformationPage = new MyInformationPage(js, driver);
+		this.myWishlistsPage = new MyWishlistsPage(driver);
 		
 		driver.manage().window().maximize();
 	}

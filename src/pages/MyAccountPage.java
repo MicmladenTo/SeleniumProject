@@ -10,6 +10,8 @@ public class MyAccountPage {
 	
 	WebElement accountInfo;
 	WebElement myAddressesButton;
+	WebElement myInfoButton;
+	WebElement myWishlistsButton;
 
 	String assertText;
 	
@@ -24,9 +26,17 @@ public class MyAccountPage {
 	
 	public WebElement getMyAddressesButton() {
 		return driver.findElement(By.xpath("//a[@title='Addresses']"));
-//		return driver.findElement(By.xpath("/html/body/div/div[2]/div/div[3]/div/div/div[1]/ul/li[3]/a"));
-		
 	}
+	
+	public WebElement getMyInfoButton() {
+		return driver.findElement(By.xpath("//a[@title='Information']"));
+	}
+	
+	public WebElement getMyWishlistsButton() {
+		return driver.findElement(By.xpath("//a[@title='My wishlists']"));
+	}
+	
+	
 	
 	//Constructor
 	public MyAccountPage(WebDriver driver) {
@@ -36,6 +46,13 @@ public class MyAccountPage {
 	//Functions
 	public void clickMyAddresses() {
 		getMyAddressesButton().click();
+	}
+	public void clickMyInfo() {
+		getMyInfoButton().click();
+	}
+	
+	public void clickMyWishlists() {
+		getMyWishlistsButton().click();
 	}
 	
 	
