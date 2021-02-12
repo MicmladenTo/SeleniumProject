@@ -58,4 +58,9 @@ public class MyWishlistsPage {
 		Thread.sleep(1000);
 	}
 	
+	public void deleteAWishlist() throws InterruptedException {
+			getDeleteWishlistButton().get(0).click();
+			driver.switchTo().alert().accept();
+	}
+	
 }

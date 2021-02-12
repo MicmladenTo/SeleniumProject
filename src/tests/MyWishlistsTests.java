@@ -31,6 +31,11 @@ public class MyWishlistsTests extends TestBase {
 	
 	@Test (priority = 3)
 	public void deleteWishlists() throws InterruptedException {
+		
+		// Delete a single wishlist:
+//		myWishlistsPage.deleteAWishlist();
+		
+		// Delete all wishlists
 		myWishlistsPage.deleteAllWishlists();
 		Assert.assertEquals(myWishlistsPage.getNumberofLists(), 0);
 	}
