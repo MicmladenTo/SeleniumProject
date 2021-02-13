@@ -18,43 +18,46 @@ public class LogInTests extends TestBase {
 	@Test
 	public void logInCorrect() throws InterruptedException, IOException {
 		
-		String username = excelCitac.getStringData("logInCorrect", 4, 6);
-		String password = excelCitac.getStringData("logInCorrect", 5, 6);
+		String username = excelCitac.getData("Login form", 4, 6);
+		String password = excelCitac.getData("Login form", 5, 6);
+		String assertText = excelCitac.getData("Login form", 6, 6);
 		
 		mainPage.clickSignIn();
 		Thread.sleep(2000);
 		
 		loginPage.logIn(username, password);
 		Thread.sleep(2000);
-		Assert.assertEquals(myAccountPage.getAccountInfo(), myAccountPage.getAssertText());
+		Assert.assertEquals(myAccountPage.getAccountInfo(), assertText);
 	}
 	
 	@Test
 	public void invalidEmailLogin() throws InterruptedException {
 		
-		String username = excelCitac.getStringData("invalidUsername", 4, 6);
-		String password = excelCitac.getStringData("invalidUsername", 5, 6);
+		String username = excelCitac.getData("Login form", 10, 6);
+		String password = excelCitac.getData("Login form", 11, 6);
+		String assertErrorText = excelCitac.getData("Login form", 12, 6);
 		
 		mainPage.clickSignIn();
 		Thread.sleep(2000);
 		
 		loginPage.logIn(username, password);
 		Thread.sleep(2000);
-		Assert.assertEquals(loginPage.getAlertNotification().getText(), loginPage.getAlertNotificationText());
+		Assert.assertEquals(loginPage.getAlertNotification().getText(), assertErrorText);
 	}
 	
 	@Test
 	public void invalidPassLogin() throws InterruptedException {
 		
-		String username = excelCitac.getStringData("invalidPassword", 4, 6);
-		String password = excelCitac.getStringData("invalidPassword", 5, 6);
+		String username = excelCitac.getData("Login form", 16, 6);
+		String password = excelCitac.getData("Login form", 17, 6);
+		String assertErrorText = excelCitac.getData("Login form", 18, 6);
 		
 		mainPage.clickSignIn();
 		Thread.sleep(2000);
 		
 		loginPage.logIn(username, password);
 		Thread.sleep(2000);
-		Assert.assertEquals(loginPage.getAlertNotification().getText(), loginPage.getAlertNotificationText());
+		Assert.assertEquals(loginPage.getAlertNotification().getText(), assertErrorText);
 	}
 	
 	@Test
@@ -62,13 +65,14 @@ public class LogInTests extends TestBase {
 		
 		String username = "";
 		String password = "";
+		String assertErrorMessage = excelCitac.getData("Login form", 22, 6);
 		
 		mainPage.clickSignIn();
 		Thread.sleep(2000);
 		
 		loginPage.logIn(username, password);
 		Thread.sleep(2000);
-		Assert.assertEquals(loginPage.getAlertNotification().getText(), loginPage.noEmailNotification());
+		Assert.assertEquals(loginPage.getAlertNotification().getText(), assertErrorMessage);
 	}
 
 	@AfterMethod

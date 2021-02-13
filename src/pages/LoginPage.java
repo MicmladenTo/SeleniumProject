@@ -32,14 +32,14 @@ public class LoginPage {
 	public WebElement getAlertNotification() {
 		return driver.findElement(By.xpath("//*[@id=\"center_column\"]/div[1]/ol/li"));
 	}
-	
-	public String getAlertNotificationText() {
-		return 	"Authentication failed.";
-	}
-	
-	public String noEmailNotification() {
-		return 	"An email address required.";
-	}
+//	
+//	public String getAlertNotificationText() {
+//		return 	"Authentication failed.";
+//	}
+//	
+//	public String noEmailNotification() {
+//		return 	"An email address required.";
+//	}
 	
 
 	

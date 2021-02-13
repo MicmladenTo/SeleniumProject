@@ -30,7 +30,7 @@ public class MyWishlistsPage {
 		return driver.findElements(By.cssSelector("[id*=wishlist_]"));
 	}
 	
-	public List<WebElement> getDeleteWishlistButton() {
+	public List<WebElement> getDeleteWishlistButtons() {
 		return driver.findElements(By.className("icon"));
 	}
 	
@@ -52,14 +52,16 @@ public class MyWishlistsPage {
 	
 	public void deleteAllWishlists() throws InterruptedException {
 		for(int i = 0; i < getNumberofLists(); i++) {
-			getDeleteWishlistButton().get(i).click();
+			getDeleteWishlistButtons().get(i).click();
+			Thread.sleep(1000);
 			driver.switchTo().alert().accept();
+			Thread.sleep(1000);
 		}
 		Thread.sleep(1000);
 	}
 	
 	public void deleteAWishlist() throws InterruptedException {
-			getDeleteWishlistButton().get(0).click();
+			getDeleteWishlistButtons().get(0).click();
 			driver.switchTo().alert().accept();
 	}
 	

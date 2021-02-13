@@ -20,9 +20,10 @@ public class MyAccountPage {
 	public String getAccountInfo() {
 		return driver.findElement(By.className("info-account")).getText();
 	}
-	public String getAssertText() {
-		return "Welcome to your account. Here you can manage all of your personal information and orders.";
-	}
+	
+//	public String getAssertText() {
+//		return "Welcome to your account. Here you can manage all of your personal information and orders.";
+//	}
 	
 	public WebElement getMyAddressesButton() {
 		return driver.findElement(By.xpath("//a[@title='Addresses']"));

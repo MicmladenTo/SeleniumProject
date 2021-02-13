@@ -21,29 +21,43 @@ public class AddressTests extends TestBase {
 	
 	@Test (priority = 3)
 	public void updateAddress() throws InterruptedException, IOException {
+		String street = excelCitac.getData("Address", 8, 6);
+		String number = excelCitac.getData("Address", 9, 6);
+		String newStreet = excelCitac.getData("Address", 4, 6);
+		String newNumber = excelCitac.getData("Address", 5, 6);
+		
 		myAddressesPage.clickUpdateAddressButton();
 		Thread.sleep(2000);
 		
-		addressPage.changeAddress("Kornelija Stankoviæa", "11");
+		addressPage.changeAddress(newStreet, newNumber);
 		
 		Thread.sleep(2000);
-		Assert.assertEquals(addressPage.getEnteredAddress(), addressPage.getTestAddress());
-		Assert.assertEquals(addressPage.getEnteredNumber(), addressPage.getTestStreetNumber());
+		Assert.assertEquals(addressPage.getEnteredStreet(), newStreet);
+		Assert.assertEquals(addressPage.getEnteredNumber(), newNumber);
 		
 		Thread.sleep(2000);
 		myAddressesPage.clickUpdateAddressButton();
-		addressPage.changeAddress("Acacia Avenue", "22");
+		addressPage.changeAddress(street, number);
 	}
 	
 	@Test (priority = 5)
 	public void addAddress() throws InterruptedException, IOException {
+		
+		String street = excelCitac.getData("Address", 14, 6);
+		String number = excelCitac.getData("Address", 15, 6);
+		String city = excelCitac.getData("Address", 16, 6);
+		String state = excelCitac.getData("Address", 17, 6);
+		String zip = excelCitac.getData("Address", 18, 6);
+		String phone = excelCitac.getData("Address", 19, 6);
+		String mobile = excelCitac.getData("Address", 20, 6);
+		String alias = excelCitac.getData("Address", 21, 6);
+				
 		Assert.assertEquals(myAddressesPage.getDeleteAddressButtons().size(), 1);
 		
 		myAddressesPage.clickAddAddressButton();
 		Thread.sleep(2000);
 		
-		addressPage.enterNewAddressData("Kornelija Stankovica", "11", "Hackney", "Arizona", 
-				"15000", "+3846892569", "+3689541666", "Test adresa");
+		addressPage.enterNewAddressData(street, number, city, state, zip, phone, mobile, alias);
 		Thread.sleep(2000);
 		
 		Assert.assertEquals(myAddressesPage.getDeleteAddressButtons().size(), 2);

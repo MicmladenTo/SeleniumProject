@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -20,9 +19,7 @@ public class AddressPage {
 	WebElement mobilePhoneInput;
 	WebElement addressTitle;
 	WebElement submitAddress;
-	String testAddress;
-	String testStreetNumber;
-	String enteredAddress;
+	String enteredStreet;
 	String enteredNumber;
 	
 	//Getters
@@ -62,20 +59,12 @@ public class AddressPage {
 		return driver.findElement(By.id("alias"));
 	}
 	
-	public String getEnteredAddress() {
+	public String getEnteredStreet() {
 		return driver.findElement(By.className("address_address1")).getText();
 	}
 	
 	public String getEnteredNumber() {
 		return driver.findElement(By.className("address_address2")).getText();
-	}
-	
-	public String getTestAddress() {
-		return "Kornelija Stankoviæa";
-	}
-	
-	public String getTestStreetNumber() {
-		return "11";
 	}
 	
 	
@@ -88,6 +77,8 @@ public class AddressPage {
 	}
 	
 	// Functions
+
+	
 	public void changeAddress(String street, String number) {
 		js.executeScript("arguments[0].scrollIntoView();", getAddressInput());
 		getAddressInput().clear();
@@ -101,38 +92,34 @@ public class AddressPage {
 	public void enterNewAddressData(String street, String number, String city, String state, String zip, String phone, String mobile, String alias) throws InterruptedException {
 		js.executeScript("arguments[0].scrollIntoView();", getAddressInput());
 		getAddressInput().sendKeys(street);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		js.executeScript("arguments[0].scrollIntoView();", getAddress2Input());
 		getAddress2Input().sendKeys(number);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		js.executeScript("arguments[0].scrollIntoView();", getCityInput());
 		getCityInput().sendKeys(city);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		js.executeScript("arguments[0].scrollIntoView();", getStateInput());
-//		getStateInput().click();
 		getStateInput().sendKeys(state);
-//		getStateInput().sendKeys(Keys.ENTER);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		js.executeScript("arguments[0].scrollIntoView();", getPostalCodeInput());
 		getPostalCodeInput().sendKeys(zip);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		js.executeScript("arguments[0].scrollIntoView();", getHomePhoneInput());
 		getHomePhoneInput().sendKeys(phone);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		js.executeScript("arguments[0].scrollIntoView();", getMobilePhoneInput());
 		getMobilePhoneInput().sendKeys(mobile);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		js.executeScript("arguments[0].scrollIntoView();", getAddressTitle());
 		getAddressTitle().clear();
 		getAddressTitle().sendKeys(alias);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		submitAddress();
 	}
 	
 	public void submitAddress() {
 		js.executeScript("arguments[0].scrollIntoView();", getSubmitAddress());
 		getSubmitAddress().click();
-	}
-	
-//	public void 
+	} 
 }

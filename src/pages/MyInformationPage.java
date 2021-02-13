@@ -20,7 +20,6 @@ public class MyInformationPage {
 	WebElement currentPasswordInput;
 	WebElement saveButton;
 	WebElement updateConfirmation;
-	String verificationText;
 	
 	
 	public WebElement getSocialTitle() {
@@ -63,10 +62,6 @@ public class MyInformationPage {
 		return driver.findElement(By.className("alert-success"));
 	}
 	
-	public String getVerificationText() {
-		return "Your personal information has been successfully updated.";
-	}
-	
 	// Functions
 	public void addPersonalData(String name, String surname, String email, String birthDay, String birthMonth, String birthYear, String password) {
 		getSocialTitle().click();
@@ -83,7 +78,6 @@ public class MyInformationPage {
 		getCurrentPasswordInput().sendKeys(password);
 		getSaveButton().click();
 	}
-
 
 
 	// Constructor
